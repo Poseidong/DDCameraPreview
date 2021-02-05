@@ -12,6 +12,16 @@
 		02380FFB25CCE6440092DEF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02380FF925CCE6440092DEF1 /* Main.storyboard */; };
 		02380FFD25CCE6450092DEF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 02380FFC25CCE6450092DEF1 /* Assets.xcassets */; };
 		0238100025CCE6450092DEF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02380FFE25CCE6450092DEF1 /* LaunchScreen.storyboard */; };
+		0238101425CCE8890092DEF1 /* ic_ok@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238100C25CCE8890092DEF1 /* ic_ok@2x.png */; };
+		0238101525CCE8890092DEF1 /* ic_ok@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238100D25CCE8890092DEF1 /* ic_ok@3x.png */; };
+		0238101625CCE8890092DEF1 /* ic_cancel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238100E25CCE8890092DEF1 /* ic_cancel@2x.png */; };
+		0238101725CCE8890092DEF1 /* ic_dismiss@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238100F25CCE8890092DEF1 /* ic_dismiss@2x.png */; };
+		0238101825CCE8890092DEF1 /* ic_shot@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238101025CCE8890092DEF1 /* ic_shot@3x.png */; };
+		0238101925CCE8890092DEF1 /* ic_shot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238101125CCE8890092DEF1 /* ic_shot@2x.png */; };
+		0238101A25CCE8890092DEF1 /* ic_dismiss@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238101225CCE8890092DEF1 /* ic_dismiss@3x.png */; };
+		0238101B25CCE8890092DEF1 /* ic_cancel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0238101325CCE8890092DEF1 /* ic_cancel@3x.png */; };
+		0238101E25CCE91F0092DEF1 /* DDCameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238101D25CCE91F0092DEF1 /* DDCameraPreview.swift */; };
+		0238102125CCE96B0092DEF1 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0238102025CCE96B0092DEF1 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,16 @@
 		02380FFC25CCE6450092DEF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		02380FFF25CCE6450092DEF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0238100125CCE6450092DEF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0238100C25CCE8890092DEF1 /* ic_ok@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_ok@2x.png"; sourceTree = "<group>"; };
+		0238100D25CCE8890092DEF1 /* ic_ok@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_ok@3x.png"; sourceTree = "<group>"; };
+		0238100E25CCE8890092DEF1 /* ic_cancel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cancel@2x.png"; sourceTree = "<group>"; };
+		0238100F25CCE8890092DEF1 /* ic_dismiss@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dismiss@2x.png"; sourceTree = "<group>"; };
+		0238101025CCE8890092DEF1 /* ic_shot@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_shot@3x.png"; sourceTree = "<group>"; };
+		0238101125CCE8890092DEF1 /* ic_shot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_shot@2x.png"; sourceTree = "<group>"; };
+		0238101225CCE8890092DEF1 /* ic_dismiss@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_dismiss@3x.png"; sourceTree = "<group>"; };
+		0238101325CCE8890092DEF1 /* ic_cancel@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_cancel@3x.png"; sourceTree = "<group>"; };
+		0238101D25CCE91F0092DEF1 /* DDCameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDCameraPreview.swift; sourceTree = "<group>"; };
+		0238102025CCE96B0092DEF1 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +74,32 @@
 		02380FF225CCE6440092DEF1 /* DDCameraPreview */ = {
 			isa = PBXGroup;
 			children = (
+				0238100B25CCE8890092DEF1 /* images */,
 				02380FF325CCE6440092DEF1 /* AppDelegate.swift */,
 				02380FF725CCE6440092DEF1 /* ViewController.swift */,
+				0238101D25CCE91F0092DEF1 /* DDCameraPreview.swift */,
+				0238102025CCE96B0092DEF1 /* CameraViewController.swift */,
 				02380FF925CCE6440092DEF1 /* Main.storyboard */,
 				02380FFC25CCE6450092DEF1 /* Assets.xcassets */,
 				02380FFE25CCE6450092DEF1 /* LaunchScreen.storyboard */,
 				0238100125CCE6450092DEF1 /* Info.plist */,
 			);
 			path = DDCameraPreview;
+			sourceTree = "<group>";
+		};
+		0238100B25CCE8890092DEF1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0238100C25CCE8890092DEF1 /* ic_ok@2x.png */,
+				0238100D25CCE8890092DEF1 /* ic_ok@3x.png */,
+				0238100E25CCE8890092DEF1 /* ic_cancel@2x.png */,
+				0238100F25CCE8890092DEF1 /* ic_dismiss@2x.png */,
+				0238101025CCE8890092DEF1 /* ic_shot@3x.png */,
+				0238101125CCE8890092DEF1 /* ic_shot@2x.png */,
+				0238101225CCE8890092DEF1 /* ic_dismiss@3x.png */,
+				0238101325CCE8890092DEF1 /* ic_cancel@3x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,9 +159,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0238101A25CCE8890092DEF1 /* ic_dismiss@3x.png in Resources */,
+				0238101625CCE8890092DEF1 /* ic_cancel@2x.png in Resources */,
+				0238101725CCE8890092DEF1 /* ic_dismiss@2x.png in Resources */,
 				0238100025CCE6450092DEF1 /* LaunchScreen.storyboard in Resources */,
 				02380FFD25CCE6450092DEF1 /* Assets.xcassets in Resources */,
+				0238101425CCE8890092DEF1 /* ic_ok@2x.png in Resources */,
+				0238101825CCE8890092DEF1 /* ic_shot@3x.png in Resources */,
+				0238101925CCE8890092DEF1 /* ic_shot@2x.png in Resources */,
 				02380FFB25CCE6440092DEF1 /* Main.storyboard in Resources */,
+				0238101525CCE8890092DEF1 /* ic_ok@3x.png in Resources */,
+				0238101B25CCE8890092DEF1 /* ic_cancel@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,6 +180,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0238101E25CCE91F0092DEF1 /* DDCameraPreview.swift in Sources */,
+				0238102125CCE96B0092DEF1 /* CameraViewController.swift in Sources */,
 				02380FF825CCE6440092DEF1 /* ViewController.swift in Sources */,
 				02380FF425CCE6440092DEF1 /* AppDelegate.swift in Sources */,
 			);
