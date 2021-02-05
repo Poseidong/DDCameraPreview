@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-typealias Callback = (UIImage) -> Void
+typealias Callback = (String) -> Void
 
 class CameraViewController: UIViewController, DDCameraPreviewDelegate {
     
@@ -28,13 +28,13 @@ class CameraViewController: UIViewController, DDCameraPreviewDelegate {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        cameraView.frame = view.bounds
+//        cameraView.frame = view.bounds
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        cameraView = DDCameraPreview(frame: view.bounds)
-        cameraView.delegate = self
+        view.backgroundColor = .white
+        cameraView = DDCameraPreview(delegate: self)
         view.addSubview(cameraView)
     }
     
@@ -43,14 +43,17 @@ class CameraViewController: UIViewController, DDCameraPreviewDelegate {
     }
     
     override var shouldAutorotate: Bool {
-        return true
+        if UIApplication.shared.statusBarOrientation == .landscapeLeft || UIApplication.shared.statusBarOrientation == .landscapeRight {
+            return true
+        }
+        return false
     }
-    
     
     func cameraPreviewClickOk(image: UIImage?) {
         if image != nil {
             UIImageWriteToSavedPhotosAlbum(image!, self, #selector(saveImage(image:didFinishSavingWithError:contextInfo:)), nil)
-            imageCallBack?(image!)
+            writeImageToPath(data: image?.jpegData(compressionQuality: 1))
+            imageCallBack?(getFilePath())
             dismiss(animated: true, completion: nil)
         }
     }
@@ -61,6 +64,34 @@ class CameraViewController: UIViewController, DDCameraPreviewDelegate {
     
     func cameraPreviewClickDismiss() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: private method
+    private func getSavePath() -> String {
+        var documentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first
+        if documentPath == nil {
+            documentPath = NSHomeDirectory() + "/Documents"
+        }
+        return documentPath! + "/preview/avatar"
+    }
+    
+    private func getFilePath() -> String {
+        return getSavePath() + "/avatar.jpg"
+    }
+    
+    private func writeImageToPath(data: Data?) {
+        let savePath = getSavePath()
+        do {
+            try FileManager.default.createDirectory(atPath: savePath, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("创建目录失败")
+        }
+        let ret = FileManager.default.createFile(atPath: getFilePath(), contents: data, attributes: nil)
+        if ret {
+            print("写入成功")
+        } else {
+            print("写入失败")
+        }
     }
     
     //MARK: request access

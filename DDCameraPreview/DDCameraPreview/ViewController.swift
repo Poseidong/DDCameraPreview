@@ -17,19 +17,28 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .cyan
         view.addSubview(imageView)
+        
+        let btn = UIButton(frame: CGRect(x: 200, y: 50, width: 50, height: 50))
+        btn.backgroundColor = .white
+        btn.addTarget(self, action: #selector(nextPage), for: .touchUpInside)
+        view.addSubview(btn)
     }
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
+    @objc private func nextPage() {
         let vc = CameraViewController()
-        vc.imageCallBack = { [weak self] image in
-            print("imageSize: \(image.size)")
-            self?.imageView.image = image
+        vc.imageCallBack = { [weak self] filePath in
+            if let data = FileManager.default.contents(atPath: filePath) {
+                let image = UIImage(data: data)
+                self?.imageView.image = image
+            } else {
+                print("获取图片失败")
+            }
         }
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true, completion: nil)
     }
-
 }
 

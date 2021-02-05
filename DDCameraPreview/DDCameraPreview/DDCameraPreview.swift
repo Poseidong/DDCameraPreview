@@ -21,7 +21,7 @@ public protocol DDCameraPreviewDelegate: NSObjectProtocol {
 
 class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
     
-    var delegate: DDCameraPreviewDelegate?
+    private var delegate: DDCameraPreviewDelegate?
     
     private let screenWidth = UIScreen.main.bounds.size.width
     private let screenHeight = UIScreen.main.bounds.size.height
@@ -43,8 +43,10 @@ class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
     private var dataImage: UIImage?
     
     //MARK: life cycle
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init(delegate: DDCameraPreviewDelegate?) {
+        super.init(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+        self.delegate = delegate
+        
         requestAccess()
         initState()
         configureSession()
@@ -56,7 +58,7 @@ class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
         
         NotificationCenter.default.addObserver(self, selector: #selector(onDeviceOrientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
-    
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -254,7 +256,7 @@ class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
     //MARK: noti
     @objc private func onDeviceOrientationDidChange() {
         updateVideoOrientation()
-        updateFrame()
+//        updateFrame()
     }
     
     func updateButton(isShotHidden: Bool) {
@@ -358,8 +360,7 @@ class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
         let fillWidth = max(screenWidth, screenHeight)
         let fillX = self.center.x - fillWidth / 2.0
         let fillY = self.center.y - fillWidth / 2.0
-        let fillRect = CGRect(x: fillX, y: fillY, width: width, height: width)
-        print("fillRect = \(fillRect)")
+        let fillRect = CGRect(x: fillX, y: fillY, width: fillWidth, height: fillWidth)
         let fillPath = UIBezierPath(rect: fillRect)
         fillPath.append(path!)
         fillPath.usesEvenOddFillRule = true
@@ -420,7 +421,7 @@ class DDCameraPreview: UIView, AVCapturePhotoCaptureDelegate {
     //MARK: lazy load
     lazy private var dismissBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.frame = CGRect(x: 22, y: 16, width: 16, height: 16)
+        btn.frame = CGRect(x: 14, y: 8, width: 32, height: 32)
         btn.setImage(UIImage(named: "ic_dismiss"), for: .normal)
         btn.addTarget(self, action: #selector(dismissAction), for: .touchUpInside)
         return btn
